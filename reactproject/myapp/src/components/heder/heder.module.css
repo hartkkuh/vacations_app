@@ -1,0 +1,16 @@
+.h1 {
+    font-family: 'Arial', sans-serif;
+    font-size: 3rem;
+    text-align: center;
+    color: #4A90E2; /* צבע כחול יפה */
+    margin-top: -20px;
+    margin-left: 230px;
+    text-transform: uppercase; /* הופך את הטקסט לאותיות גדולות */
+    letter-spacing: 3px; /*רווח בין האותיות*/
+    padding: 20px;
+    background: linear-gradient(90deg, #4A90E2, #50E3C2);
+    color: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1); /* צל קל */
+    transition: transform 0.3s ease-in-out; /* אפקט של אנימציה */
+}

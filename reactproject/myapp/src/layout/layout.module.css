@@ -1,0 +1,73 @@
+.layoutContainer {
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* תופס את כל גובה המסך */
+    position: relative;
+  }
+  
+  .mainContent {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  
+  .header {
+    background-color: #4CAF50; /* צבע ירוק בהיר */
+    color: white;
+    padding: 20px;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    width: 100%;
+    height: 50px;
+  }
+  
+  .navbarContainer {
+    position: fixed;
+    left: 0;
+    bottom: 30px;
+    width: 250px; /* שדרוג לרוחב מעט רחב יותר */
+    background-color: #3f51b5; /* צבע כחול בהיר */
+    color: hsl(0, 0%, 100%);
+    height: calc(100vh - 120px); /* לוקח את כל גובה המסך פחות הגובה של ה-header */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* צללה עדינה */
+  }
+  
+  .contentContainer {
+    margin-left: 240px; /* מקום לתפריט בצד שמאל */
+    margin-top: 80px; /* נותן מקום ל-header */
+    padding-bottom: 60px; /* נותן מקום ל-footer */
+    flex-grow: 1;
+    padding: 20px;
+    background-color: #f4f4f4; /* צבע רקע בהיר לתוכן */
+    border-radius: 8px; /* פינות מעוגלות */
+  }
+  
+  .footer {
+    width: 100%;
+    background-color: #81C784; /* צבע ירוק בהיר יותר */
+    color: white;
+    position: fixed;
+    bottom: 30px;
+    left: 250px;
+
+    text-align: center;
+    /* padding: 20px 10px; padding יותר רחב */
+    z-index: 5;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* צללה עדינה מעל */
+    font-size: 14px; /* גודל טקסט קטן יותר */
+    height: 30px;
+  }
+  
+  .footer a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+  }
+  
+  .footer a:hover {
+    text-decoration: underline;
+  }
+  

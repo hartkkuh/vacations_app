@@ -1,0 +1,51 @@
+.container {
+  display: flex;
+  flex-direction: column; /* התפריטים יהיו אחד מתחת לשני */
+  align-items: flex-start;
+  background-color: #4CAF50; /* צבע רקע ירוק בהיר */
+  padding: 20px;
+  height: 100vh; /* תופס את כל גובה המסך */
+  box-sizing: border-box;
+}
+
+.link {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  margin: 10px 0;
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  width: 100%; /* יגרום לכל הלינקים להיות ברוחב המלא */
+}
+
+.link:hover {
+  background-color: #388E3C; /* צבע ירוק כהה יותר בהמרה */
+  transform: translateX(10px); /* הזזה קלה ימינה */
+}
+
+.link:active {
+  background-color: #2C6B2F; /* צבע אפל יותר בלחיצה */
+}
+
+@media (min-width: 768px) {
+  .container {
+    flex-direction: column; /* מבנה עמודתי */
+    height: 100vh; /* תופס את כל הגובה */
+    padding: 20px 40px;
+  }
+
+  .link {
+    margin: 10px 0; /* מרווח בין כל לינק */
+    padding: 10px 20px;
+  }
+
+  .link:hover {
+    transform: translateY(-5px); /* הזזה למעלה בעת ריחוף */
+  }
+}
+.label{
+  color: black;
+  font-size: 18px;
+  font-family: monospace;
+}

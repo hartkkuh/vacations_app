@@ -1,0 +1,48 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: #f4f6f8;
+}
+
+.userCard {
+    background-color: white;
+    padding: 20px;
+    margin: 10px 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.userCard p {
+    margin: 5px 0;
+    font-size: 1.1rem;
+}
+
+.userCard .role {
+    font-weight: bold;
+}
+
+.userCard .admin {
+    color: #28a745;
+}
+
+.userCard .button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    font-weight: bold;
+}
+
+.userCard .button:hover {
+    background-color: #0056b3;
+}

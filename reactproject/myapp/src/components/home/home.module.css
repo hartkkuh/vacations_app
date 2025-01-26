@@ -1,0 +1,19 @@
+.div {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(90deg, #D56B00, #F79C42);
+    border-radius: 15px;
+}
+
+.h1 {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(90deg, #D56B00, #F79C42);
+    font-size: 3rem;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    padding: 40px;
+    border-radius: 15px;
+    transition: transform 0.3s ease-in-out;
+}
