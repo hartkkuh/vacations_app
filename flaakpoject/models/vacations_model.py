@@ -69,3 +69,38 @@ def update_vacation(vacation_id, country_id, vacation_description, stars_date, e
     cur.close()
     conn.close()
 
+def get_end_vacations():
+    conn = get_db_connection()
+    cur = conn.cursor()
+    cur.execute("""
+                SELECT COUNT(*) FROM vacations
+                WHERE end_date::date < CURRENT_DATE;
+                """)
+    expired_vacations = cur.fetchone()[0]
+    cur.close()
+    conn.close()
+    return expired_vacations
+
+def get_start_vacations():
+    conn = get_db_connection()
+    cur = conn.cursor()
+    cur.execute("""
+                SELECT COUNT(*) FROM vacations
+                WHERE start_date::date > CURRENT_DATE;
+                """)
+    expired_vacations = cur.fetchone()[0]
+    cur.close()
+    conn.close()
+    return expired_vacations
+
+def get_on_vacations():
+    conn = get_db_connection()
+    cur = conn.cursor()
+    cur.execute("""
+                SELECT COUNT(*) FROM vacations
+                WHERE start_date::date <= CURRENT_DATE AND end_date::date >= CURRENT_DATE;
+                """)
+    expired_vacations = cur.fetchone()[0]
+    cur.close()
+    conn.close()
+    return expired_vacations

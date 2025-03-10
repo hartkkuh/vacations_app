@@ -1,7 +1,7 @@
 from flask import jsonify
 from flask_bcrypt import Bcrypt
 from flask_jwt_extended import create_access_token
-from models.users_model import delete_user_by_id, update_user_by_id, update_user_by_token, register, get_user_by_email, get_all_users_model, get_user_by_id as get_user_from_db
+from models.users_model import delete_user_by_id, update_user_by_id, update_user_by_token, register, get_user_by_email, get_all_users_model, get_user_by_id as get_user_from_db, total_users
 from datetime import timedelta
 from flask import request, jsonify
 import jwt, os, traceback
@@ -100,3 +100,8 @@ def delete_user_by_id(user_id):
 
 def logout_user():
     return jsonify({"message": "Logout successful"}), 200
+
+# retrn total users
+def total_users_controler():
+    users = total_users()
+    return jsonify({"total_users": users}), 200

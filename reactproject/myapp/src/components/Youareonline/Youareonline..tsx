@@ -1,4 +1,4 @@
-import css from "./youareonline.module.css";
+import css from "./Youareonline.module.css";
 import { FaCheckCircle } from "react-icons/fa";
 
 export function Youareonline() {

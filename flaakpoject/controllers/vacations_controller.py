@@ -1,4 +1,4 @@
-from models.vacations_model import get_all_vacations, get_vacations_by_country_id, get_vacation_by_id, delete_vacation, update_vacation, add_vacation
+from models.vacations_model import get_all_vacations, get_vacations_by_country_id, get_vacation_by_id, delete_vacation, update_vacation, add_vacation, get_end_vacations, get_start_vacations, get_on_vacations
 from flask import jsonify, request
 import jwt, os
 
@@ -51,3 +51,9 @@ def add_vacation_controller(data):
         return jsonify({"message": "All fields are required"}), 400
     vacation_id = add_vacation(country_id, vacation_description, start_date, end_date, price, image_url)
     return jsonify({"message": "Vacation added successfully", "vacation_id": vacation_id}), 201
+
+def get_vacations_numbers_controler():
+    end_vacations = get_end_vacations()
+    start_vacations = get_start_vacations()
+    on_vacations = get_on_vacations()
+    return {"end_vacations": end_vacations, "start_vacations": start_vacations, "on_vacations": on_vacations}

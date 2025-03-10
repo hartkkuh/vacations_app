@@ -12,7 +12,7 @@ import os
 jwt = JWTManager()
 
 app = Flask(__name__, static_folder='../reactapp')
-CORS(app, methods=["GET", "POST", "PUT", "DELETE"], supports_credentials=True)
+CORS(app, supports_credentials=True)
 
 app.config["JWT_SECRET_KEY"] = os.getenv('JWT_SECRET_KEY')
 app.config['JWT_ACCESS_TOKEN_EXPIRES'] = timedelta(days=7)
@@ -27,5 +27,5 @@ app.register_blueprint(vacations_bp)
 app.register_blueprint(likes_bp)
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=5000, debug=True)
 else: print("not")

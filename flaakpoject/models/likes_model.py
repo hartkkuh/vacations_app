@@ -42,3 +42,28 @@ def get_likes_by_user_id(user_id):
     cur.close()
     conn.close()
     return likes
+
+def get_total_likes():
+    conn = get_db_connection()
+    cur = conn.cursor()
+    cur.execute("SELECT COUNT(*) FROM likes")
+    total_likes = cur.fetchone()[0]
+    cur.close()
+    conn.close()
+    return total_likes
+
+def get_total_likes_by_vacation_id():
+    conn = get_db_connection()
+    cur = conn.cursor()
+    cur.execute("""
+    SELECT v.vacation_id, c.name AS country_name, v.vacation_description, COUNT(l.user_id) AS like_count
+    FROM vacations v
+    LEFT JOIN likes l ON v.vacation_id = l.vacation_id
+    LEFT JOIN countries c ON v.country_id = c.country_id
+    GROUP BY v.vacation_id, c.name, v.vacation_description
+    ORDER BY v.vacation_id
+    """, )
+    total_likes = cur.fetchall()
+    cur.close()
+    conn.close()
+    return total_likes

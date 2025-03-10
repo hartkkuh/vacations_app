@@ -1,6 +1,6 @@
 from flask import Blueprint, request, jsonify
 from flask_jwt_extended import jwt_required, get_jwt_identity
-from controllers.users_controller import Is_Admin, update_user_by_id_controller, get_user_by_id, delete_user_by_id, register_user, update_user_by_token_controller, login_user, get_all_users
+from controllers.users_controller import Is_Admin, update_user_by_id_controller, get_user_by_id, delete_user_by_id, register_user, update_user_by_token_controller, login_user, get_all_users, total_users_controler
 
 users_bp = Blueprint("users", __name__)
 
@@ -65,3 +65,8 @@ def delete_user_by_id_route(user_id):
     if is_admin:
         return delete_user_by_id(user_id)
     else: return jsonify({"message": "the user is not a admin"}), 401
+
+@users_bp.route("/users/total", methods=["GET"], endpoint="total_users_route")
+@jwt_required()
+def total_users_route():
+    return total_users_controler()

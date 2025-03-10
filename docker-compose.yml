@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  flask-app:
+    image: hartk/flask:1.0
+    build: ./flaakpoject
+    ports:
+      - "5000:5000"
+    container_name: flaak-app
+    environment:
+      - FLASK_APP=app.py
+    
+  react-app:
+    depends_on:
+      - flask-app
+    image: hartk/react:1.0
+    build: ./reactproject/myapp
+    ports:
+      - "8000:8000"
+    container_name: react-app
+    volumes:
+      - images:/app/public
+
+volumes:
+  images:

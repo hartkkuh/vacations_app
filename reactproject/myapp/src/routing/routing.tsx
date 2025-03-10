@@ -15,6 +15,7 @@ import { Updetuserbyadmin } from "../components/updetuserbyadmin/updetuserbyadmi
 import { Addvacations } from "../components/addvacation/addvacations"
 import { Delete_vacation } from "../components/deletevacation/deletevacation"
 import { Updatevacations } from "../components/updatevacation/updatevacation"
+import { Statistics } from "../components/Statistics/statistics"
 
 export function Routing(){
     const myContext = useContext(AuthContext);
@@ -26,6 +27,7 @@ export function Routing(){
             <Route path="/register" element={myContext?.token ? <Youareonline /> : <Register />} />
             <Route path="/vacations" element={myContext?.token ? <Vacations /> : <Login />} />
             <Route path="/*" element={<Notfound />} />
+            <Route path="/statistics" element={myContext?.token ? <Statistics/> : <Login />} />
             <Route path="/logout" element={myContext?.token ? <Logout /> : <Login />} />
             <Route path="/updetmyuser" element={myContext?.token ? <Updateuserbyself /> : <Login />} />
             <Route path="/selectuser" element={<Selectuser />} />

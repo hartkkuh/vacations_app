@@ -13,6 +13,7 @@ export function Navbarapp():JSX.Element{
                 <Link className={css.link} to="/updetmyuser">updet my user</Link>
                 <Link className={css.link} to="/userinformation">User Information</Link>
                 <Link className={css.link} to="/selectuser">Select user</Link>
+                <Link className={css.link} to="/statistics">statistics</Link>
 
             </nav>
         </div>

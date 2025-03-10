@@ -27,7 +27,7 @@ export function AuthProvider( { children }: { children: React.ReactNode }) {
     
     useEffect(() => {
         if (token) {
-            Cookies.set('token', token, { expires: 7, path: '/', domain: "127.0.0.1", sameSite: "Lax" });
+            Cookies.set('token', token, { expires: 7, path: '/', sameSite: "Lax" });
         } else {
             Cookies.remove('token');
         }

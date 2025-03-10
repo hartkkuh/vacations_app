@@ -80,3 +80,27 @@ export const delete_vacation = async (token: string, vacation_id: number) => {
         headers: {Authorization: `Bearer ${token}`}})
         return response.data
     }
+
+export const vacations_nambers = async (token: string) => {
+    const response = await api.get("/vacations/numbers", {
+        headers: {Authorization: `Bearer ${token}`}})
+        return response.data
+    }
+
+export const total_users = async (token: string) => {
+    const response = await api.get("/users/total", {
+        headers: {Authorization: `Bearer ${token}`}})
+        return response.data
+    }
+
+export const total_likes = async (token: string) => {
+    const response = await api.get("/likes/total", {
+        headers: {Authorization: `Bearer ${token}`}})
+        return response.data
+    }
+
+export const total_likes_by_vacation = async (token: string) => {
+    const response = await api.get(`/likes/totalby`, {
+        headers: {Authorization: `Bearer ${token}`}})
+        return response.data
+    }

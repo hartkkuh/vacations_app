@@ -104,3 +104,11 @@ def delete_user_by_id(user_id):
     cur.close()
     conn.close()
 
+def total_users():
+    conn = get_db_connection()
+    cur = conn.cursor()
+    cur.execute("SELECT COUNT(*) FROM users")
+    total = cur.fetchone()[0]
+    cur.close()
+    conn.close()
+    return total

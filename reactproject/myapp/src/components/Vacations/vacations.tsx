@@ -77,6 +77,7 @@ export function Vacations() {
             }
         }
     };
+    
 
     return (
         <div className={css.vacations_container}>

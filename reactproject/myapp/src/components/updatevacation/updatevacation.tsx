@@ -14,11 +14,23 @@ export const Updatevacations = () => {
     const [countries, setcountries] = useState<[] | null>(null);
     const [success, setsuccess] = useState<string | null>(null);
     const [error, seterror] = useState<string | null>(null);
+    
     const myContext = useContext(AuthContext);
     const token = myContext?.token;
     const location = useLocation();
-    const vacation = location.state?.vacation;
     const navigate = useNavigate();
+    const vacation = location.state?.vacation; // מקבל את הנתונים של החופשה לעריכה
+
+    useEffect(() => {
+        if (vacation) {
+            setcountry_id(vacation[0] ?? null);
+            setvacation_description(vacation[1] ?? null);
+            setstart_date(vacation[2] ?? null);
+            setend_date(vacation[3] ?? null);
+            setprice(vacation[4] ?? null);
+            setimage_url(vacation[5] ?? null);
+        }
+    }, [vacation]);
 
     const handlerupdatevacation = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -26,7 +38,7 @@ export const Updatevacations = () => {
         setsuccess(null);
 
         if (!country_id || !vacation_description || !start_date || !end_date || !price || !image_url) {
-            seterror("all required fields are missing");
+            seterror("All required fields are missing");
             return;
         }
 
@@ -64,7 +76,10 @@ export const Updatevacations = () => {
             <form className={css.form} onSubmit={handlerupdatevacation}>
                 <div className={css.inputGroup}>
                     <label>Choose Country:</label>
-                    <select value={vacation[0] ?? ''} onChange={(e) => setcountry_id(Number(e.target.value))}>
+                    <select 
+                        value={country_id ?? ''} 
+                        onChange={(e) => setcountry_id(Number(e.target.value))}
+                    >
                         {countries?.map((country, index) => (
                             <option key={index} value={country[0]}>
                                 {country[1]}
@@ -77,7 +92,7 @@ export const Updatevacations = () => {
                     <label>Vacation Description:</label>
                     <input
                         type="text"
-                        value={vacation[1] ?? ''}
+                        value={vacation_description ?? ''}
                         onChange={(e) => setvacation_description(e.target.value)}
                     />
                 </div>
@@ -86,7 +101,7 @@ export const Updatevacations = () => {
                     <label>Start Date:</label>
                     <input
                         type="date"
-                        value={vacation[2] ?? ''}
+                        value={start_date ?? ''}
                         onChange={(e) => setstart_date(e.target.value)}
                     />
                 </div>
@@ -95,7 +110,7 @@ export const Updatevacations = () => {
                     <label>End Date:</label>
                     <input
                         type="date"
-                        value={vacation[3] ?? ''}
+                        value={end_date ?? ''}
                         onChange={(e) => setend_date(e.target.value)}
                     />
                 </div>
@@ -104,7 +119,7 @@ export const Updatevacations = () => {
                     <label>Price:</label>
                     <input
                         type="number"
-                        value={vacation[4] ?? ''}
+                        value={price ?? ''}
                         onChange={(e) => setprice(Number(e.target.value))}
                     />
                 </div>
@@ -113,7 +128,7 @@ export const Updatevacations = () => {
                     <label>Image URL:</label>
                     <input
                         type="text"
-                        value={vacation[5] ?? ''}
+                        value={image_url ?? ''}
                         onChange={(e) => setimage_url(e.target.value)}
                     />
                 </div>

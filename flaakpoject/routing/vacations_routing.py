@@ -1,5 +1,5 @@
 from flask import Blueprint, request, jsonify
-from controllers.vacations_controller import Is_Admin, add_vacation_controller, get_all_vacations_controller, update_vacation_controller, delete_vacation_controller, get_vacation_by_id_controller, get_vacations_by_country_id_controller
+from controllers.vacations_controller import get_vacations_numbers_controler ,Is_Admin, add_vacation_controller, update_vacation_controller, delete_vacation_controller, get_vacation_by_id_controller, get_vacations_by_country_id_controller, get_all_vacations_controller
 from flask_jwt_extended import jwt_required
 
 vacations_bp = Blueprint("vacations", __name__)
@@ -53,3 +53,9 @@ def get_vacations_by_country_id(country_id):
 @jwt_required()
 def get_all_vacations():
     return get_all_vacations_controller()
+
+# route for get_vacations_numbers
+@vacations_bp.route("/vacations/numbers", methods=["GET"], endpoint="get_vacations_numbers_route")
+# @jwt_required()
+def get_vacations_numbers():
+    return jsonify(get_vacations_numbers_controler()), 200
